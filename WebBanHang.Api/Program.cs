@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
+using WebBanHang.Api.Data;
+using WebBanHang.Api.Repositories;
+using WebBanHang.Api.Repositories.Contracts;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var chuoiKetNoi = builder.Configuration.GetConnectionString("ChuoiKetNoi");
+
+builder.Services.AddDbContext<WebBanhangDbContext>(options => options.UseSqlServer(chuoiKetNoi));
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // Add services to the container.
 
@@ -15,6 +27,12 @@ if (app.Environment.IsDevelopment())
   app.UseSwagger();
   app.UseSwaggerUI();
 }
+
+app.UseCors(policy =>
+policy.WithOrigins("https://localhost:7204", "http://localhost:5239")
+.AllowAnyMethod()
+.WithHeaders(HeaderNames.ContentType)
+);
 
 app.UseHttpsRedirection();
 

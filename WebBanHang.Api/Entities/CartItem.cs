@@ -6,6 +6,9 @@ namespace WebBanHang.Api.Entities
   {
     [Key]
     public int Id { get; set; }
-    public 
+    public int CartId { get; set; }
+    public int ProductId { get; set; }
+    // Quantity số lượng
+    public int Qty { get; set; }
   }
 }

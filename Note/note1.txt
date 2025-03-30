@@ -11,5 +11,68 @@ swagger (nhiều)
 open api (mới)
 GuId
 
+Cart
+CartItem
+
+ctrl . để using một thư viện
+
+danh mục sản phẩm:
+video game
+đĩa cài game
+truyện tranh
+
+lưu ảnh trong wwwroot thuộc  project WebBanHang
+(không nằm trong web api)
+
+phân trang cho trang hiển thị sản phẩm
+
+danh mục sản phẩm:
+comic truyện tranh
+electronic hàng điện tử
+
+add-migration
+Remove-Migration
+add-migration
+update-database
+
+=> đã tạo xong database
+
+show sản phẩm
+thêm vào giỏ hàng
+thanh toán
+
+component (library frontend đều dùng cơ chế này)
+
+DTO (ViewModel)
+ProductDTO: (ProductViewModel)
+Id
+Name
+Description
+ImageURL
+Price
+Qty
+CategoryId
+CategoryName
+
+Models (data trung gian)
+
+CartItem
+
+Dependenc Injection
+- Repo
+- Interface
+- Service
+
+Repo
+IProductRepository
+Contracts
+
+API Controller
+
+ctrl K U giải comment
+ctrl K C comment
+
+
+
 Project mô hình
 CQRS + DDD + Clean Architecture (Phạm Quang Minh)
