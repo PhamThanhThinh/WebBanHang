@@ -72,6 +72,26 @@ API Controller
 ctrl K U giải comment
 ctrl K C comment
 
+khai báo Interface và Repo
+
+AddSingleton
+AddTransient
+AddScoped
+
+push đưa code lên
+pull đưa code xuống local
+(pull code xuống trước khi làm)
+PM sẽ chia task cho TeamList TeamItem
+
+làm trang chi tiết sản phẩm
+DetailProducts
+DisplayProducts
+
+trong blazor
+class <=> tag
+
+show tất cả sản phẩm
+show sản phẩm theo danh mục sản phẩm
 
 
 Project mô hình
