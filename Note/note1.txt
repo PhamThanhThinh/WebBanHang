@@ -1,0 +1,15 @@
+Website Bán Hàng
+thanh toán qua paypal + card visa
+IDE Visual Studio 2022
+SQL Server
+ASP.NET Core Web API
+Dùng .net 6 để có thể deploy dễ dàng hơn
+(.net 9 quá mới)
+- công cụ test api
+postman (mới)
+swagger (nhiều)
+open api (mới)
+GuId
+
+Project mô hình
+CQRS + DDD + Clean Architecture (Phạm Quang Minh)
