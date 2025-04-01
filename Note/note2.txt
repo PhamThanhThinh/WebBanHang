@@ -1,0 +1,11 @@
+Làm trang chi tiết sản phẩm
+GetItem
+
+.razor
+html
+C#
+code {
+}
+.razor.cs
+
+template project ASP.NET Core API

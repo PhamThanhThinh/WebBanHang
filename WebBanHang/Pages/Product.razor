@@ -79,22 +79,36 @@ else
 
   @if (demSanPham > 0)
   {
-    var sanPhamTheoDanhMucSanPham = from product in Products
+    @* var sanPhamTheoDanhMucSanPham = from product in Products
                                     group product by product.CategoryId into producByCategory
                                     orderby producByCategory.Key
-                                    select producByCategory;
-    <div class="row mt-3">
+                                    select producByCategory; *@
+
+
+    @* <div class="row mt-3">
       @foreach (var productByCategory in sanPhamTheoDanhMucSanPham)
       {
-        @* lấy tên danh mục sản phẩm *@
+        lấy tên danh mục sản phẩm
         <h4>@productByCategory.FirstOrDefault(p => p.CategoryId == productByCategory.Key).CategoryName</h4>
         <div class="row mt-3">
-          @* lấy sản phẩm theo danh mục sản phẩm *@
+          lấy sản phẩm theo danh mục sản phẩm
           <DisplayProducts Products="@productByCategory"></DisplayProducts>
         </div>
         <hr class="mb-3" />
       }
+    </div> *@
+
+    <div class="row mt-3">
+      @foreach (var productByCategory in GetGroupedProductsByCategory())
+      {
+        <h4>@GetCategoryName(productByCategory)</h4>
+        <div class="row mt-3">
+          <DisplayProducts Products="@productByCategory.Take(4)"></DisplayProducts>
+        </div>
+        <hr class="mb-3" />
+      }
     </div>
+
   }
 
 }

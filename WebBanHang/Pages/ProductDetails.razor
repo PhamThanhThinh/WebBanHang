@@ -1,0 +1,36 @@
+﻿@page "/ProductDetails/{Id:int}"
+@inherits ProductDetailsBase
+
+<h3>Trang Chi Tiết Sản Phẩm</h3>
+
+@* @if (Product == null && ErrorMessage == null)
+{
+  <h4>Không Có Sản Phẩm</h4>
+}
+else *@ 
+@if (ErrorMessage != null)
+{
+  @* <h4 class="text-danger">@ErrorMessage</h4> *@
+  <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+  <h4 class="mb-5">Chi Tiết Sản Phẩm</h4>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <img class="img-fluid" src="@Product.ImageURL" />
+    </div>
+    <div class="col-md-6 mb-4">
+      <h4>@Product.Name</h4>
+      <p class="mb-4">@Product.Description</p>
+      <p class="mb-4">
+        @* thuộc loại thẻ inline *@
+        <b>
+          @* @Product.Price.ToString("C")&nbsp;(@Product.Qty items in stock) *@
+          @Product.Price.ToString("C")
+        </b>
+      </p>
+      <p class="mb-4">@Product.Qty</p>
+    </div>
+  </div>
+}

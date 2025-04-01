@@ -44,5 +44,32 @@ namespace WebBanHang.Api.Controllers
           "Please try again later.");
       }
     }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<ProductDto>> GetItem(int id)
+    {
+      try
+      {
+        var product = await _repository.GetItem(id);
+        
+        if (product == null)
+        {
+          //return NotFound();
+          return BadRequest();
+        }
+        else
+        {
+          var productCategory = await _repository.GetCategory(product.CategoryId);
+          var productDto = product.ConvertToDto(productCategory);
+          return Ok(productDto);
+        }
+
+      }
+      catch (Exception)
+      {
+        return StatusCode(StatusCodes.Status500InternalServerError,
+          "Please try again later.");
+      }
+    }
   }
 }

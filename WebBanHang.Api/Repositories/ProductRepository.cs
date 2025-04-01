@@ -20,16 +20,23 @@ namespace WebBanHang.Api.Repositories
       return categories;
     }
 
-    public Task<ProductCategory> GetCategory(int id)
+    public async Task<ProductCategory> GetCategory(int id)
     {
-      throw new NotImplementedException();
+      var category = await _dbContext.ProductCategories.SingleOrDefaultAsync(i => i.Id == id);
+      return category;
     }
 
-    public Task<Product> GetItem(int id)
+    // load thông tin chi tiết sản phẩm
+    // làm trang chi tiết sản phẩm
+    public async Task<Product> GetItem(int id)
     {
-      throw new NotImplementedException();
+      var product = await _dbContext.Products.FindAsync(id);
+      return product;
     }
 
+    // load tất cả sản phẩm
+    // load sản phẩm theo danh mục sản phẩm
+    // làm trang chủ
     public async Task<IEnumerable<Product>> GetItems()
     {
       var products = await _dbContext.Products.ToListAsync();
