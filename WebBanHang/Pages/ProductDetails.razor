@@ -3,12 +3,11 @@
 
 <h3>Trang Chi Tiết Sản Phẩm</h3>
 
-@* @if (Product == null && ErrorMessage == null)
+@if (Product == null && ErrorMessage == null)
 {
-  <h4>Không Có Sản Phẩm</h4>
+  <DisplayLoader/>
 }
-else *@ 
-@if (ErrorMessage != null)
+else if (ErrorMessage != null)
 {
   @* <h4 class="text-danger">@ErrorMessage</h4> *@
   <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
@@ -31,6 +30,9 @@ else
         </b>
       </p>
       <p class="mb-4">@Product.Qty</p>
+
+      <button class="btn btn-primary">Thêm Vào Giỏ Hàng</button>
+
     </div>
   </div>
 }

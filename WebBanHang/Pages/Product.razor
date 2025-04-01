@@ -72,7 +72,12 @@ else
   }
 } *@
 
-@if (Products != null)
+
+@if (Products == null)
+{
+  <DisplayLoader />
+}
+else
 {
   <h3 class="mb-5">Danh Sách Sản Phẩm</h3>
   var demSanPham = Products.Count();
