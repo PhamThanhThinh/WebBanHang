@@ -9,3 +9,5 @@ Postman
 lớp dữ liệu trung gian hay còn là DTOs/ViewModels
 
 Ctrl + Shift + Space: Hiện thông tin các tham số của hàm (parameter info)
+
+https://localhost:7097/api/shoppingcart/1/getitems
