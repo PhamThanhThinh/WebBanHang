@@ -68,6 +68,7 @@ namespace WebBanHang.Api.Repositories
                    ).SingleOrDefaultAsync();
     }
     // get tất cả item trong giỏ hàng
+    // get tất cả các item
     public async Task<IEnumerable<CartItem>> GetItems(int userId)
     {
       return await (from cart in _db.Carts

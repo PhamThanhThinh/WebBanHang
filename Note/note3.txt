@@ -1,0 +1,11 @@
+Trong Blazor .net 5 và .net 6 dùng cơ chế controller (api)
+.net 7 trở đi dùng api theo kiểu sử dụng service
+
+tính từ .net 8 trở về trước người ta thường dùng swagger
+.net dùng open api
+
+Postman
+
+lớp dữ liệu trung gian hay còn là DTOs/ViewModels
+
+Ctrl + Shift + Space: Hiện thông tin các tham số của hàm (parameter info)

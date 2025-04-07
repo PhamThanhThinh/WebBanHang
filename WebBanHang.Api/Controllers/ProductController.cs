@@ -6,14 +6,15 @@ using WebBanHang.Models.Dtos;
 
 namespace WebBanHang.Api.Controllers
 {
+  // api/product
   [Route("api/[controller]")]
   [ApiController]
   public class ProductController : ControllerBase
   {
-    // khai báo
+    // khai báo repo
     private readonly IProductRepository _repository;
 
-    // contructor hàm dựng
+    // tạo contructor hàm dựng
     public ProductController(IProductRepository repository)
     {
       _repository = repository;

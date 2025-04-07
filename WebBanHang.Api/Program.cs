@@ -11,6 +11,7 @@ var chuoiKetNoi = builder.Configuration.GetConnectionString("ChuoiKetNoi");
 builder.Services.AddDbContext<WebBanhangDbContext>(options => options.UseSqlServer(chuoiKetNoi));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 
 // Add services to the container.
 
