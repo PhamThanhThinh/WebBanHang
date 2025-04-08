@@ -57,6 +57,7 @@ namespace WebBanHang.Api.Controllers
     }
 
     [HttpGet("{id:int}")]
+    // chức năng Read
     public async Task<ActionResult<CartItemDto>> GetItem(int id)
     {
       try
@@ -75,6 +76,42 @@ namespace WebBanHang.Api.Controllers
 
         var cartItemDto = cartItem.ConvertToDto(product);
         return Ok(cartItemDto);
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+      }
+    }
+
+    // chức năng Create và Update
+    [HttpPost]
+    public async Task<ActionResult<CartItemDto>> PostItem([FromBody] CartItemToAddDto cartItemToAddDto)
+    {
+      // xử lý ngoại lệ
+      // nếu không sẽ bị null và có nguy cơ dừng chương trình
+      try
+      {
+        // tạo giỏ hàng bằng tay => phi thực tế
+        // làm thế nào đó để tạo giỏ hàng tự động
+        var newCartItem = await _shoppingCartRepository.AddItem(cartItemToAddDto);
+
+        // check null
+        if (newCartItem == null)
+        {
+          return NoContent();
+        }
+
+        var product = await _productRepository.GetItem(newCartItem.ProductId);
+
+        if (product == null)
+        {
+          throw new Exception($"Không Có Sản Phẩm Nào (mã định danh của sản phẩm đó productId:({cartItemToAddDto.ProductId}))");
+        }
+
+        var newCartItemDto = newCartItem.ConvertToDto(product);
+
+        return CreatedAtAction(nameof(GetItem), new { id = newCartItemDto.Id }, newCartItemDto);
+
       }
       catch (Exception ex)
       {
