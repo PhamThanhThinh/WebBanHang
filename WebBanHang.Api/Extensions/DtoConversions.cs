@@ -89,5 +89,21 @@ namespace WebBanHang.Api.Extensions
               ).ToList();
     }
 
+    public static CartItemDto ConvertToDto(this CartItem cartItem,
+                                                Product product)
+    {
+      return new CartItemDto
+      {
+        Id = cartItem.Id,
+        CartId = cartItem.CartId,
+        ProductId = cartItem.ProductId,
+        ProductName = product.Name,
+        ProductDescription = product.Description,
+        ProductImageUrl = product.ImageURL,
+        Price = product.Price,
+        TotalPrice = cartItem.Qty * product.Price,
+        Qty = cartItem.Qty,
+      };
+    }
   }
 }
