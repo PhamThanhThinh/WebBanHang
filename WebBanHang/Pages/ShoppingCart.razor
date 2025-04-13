@@ -1,0 +1,47 @@
+﻿@* trên menu nút giỏ hàng *@
+@* dẫn link /ShoppingCart từ menu *@
+@page "/ShoppingCart"
+@inherits ShoppingCartBase
+
+<h3>Chức Năng Giỏ Hàng</h3>
+
+@if (ShoppingCartItems == null && ErrorMessage == null)
+{
+  <DisplayLoader></DisplayLoader>
+}
+else if (ErrorMessage != null)
+{
+  <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+  <h3 class="mb-5">Giỏ Hàng</h3>
+  <div class="row mb-5">
+    <div class="col-md-9">
+      @foreach (var item in ShoppingCartItems)
+      {
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <img src="@item.ProductImageUrl"
+            width="300"
+            class="img-thumbnail"/>
+          </div>
+          <div class="col-md-8">
+            <h4>@item.ProductName</h4>
+            <div class="mb-4">@item.ProductDescription</div>
+            <span>Giá: <b>@item.Price.ToString("C")</b></span>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="col-md-3">
+      <h4>Giỏ Hàng</h4>
+      <div class="mt-2">
+        <div>Tổng tiền cần thanh toán - </div>
+        <a href="#" class="btn btn-primary">
+          <span class="oi oi-credit-card"></span>&nbsp; Thanh Toán
+        </a>
+      </div>
+    </div>
+  </div>
+}

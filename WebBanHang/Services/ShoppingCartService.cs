@@ -50,7 +50,7 @@ namespace WebBanHang.Services
     {
       try
       {
-        var response = await _httpClient.GetAsync($"api/{userId}/GetItems");
+        var response = await _httpClient.GetAsync($"api/ShoppingCart/{userId}/GetItems");
         if (response.IsSuccessStatusCode)
         {
           if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
