@@ -1,0 +1,26 @@
+webform (cần phải seo code vì webform không được tối ưu hóa về seo)
+asp.net mvc (.net framework)
+asp.net core mvc
+asp.net core blazor (dùng 1 database cho nhiều nền tảng: app điện thoại, web, app máy tính => sql server)
+deploy: triển khai
+
+
+asp.net core blazor => app nội bộ: app bệnh viện, app quản lý nhân sự, app quản lý giấy tờ, app quản lý trường học => đồ án xuất sắc
+
+
+CRUD (Create - Read - Update - Delete)
+
+google collab => miễn phí cho sinh viên nghiên cứu/trả phí => email edu.vn => tận dụng dùng để được giảm phí/miễn phí
+
+google collab => dùng python để làm việc với dữ liệu: hình ảnh, âm thanh, chữ viết
+
+kestrel (trên linux)
+IIS Express (trên windows)
+
+ctrl + tab
+
+2 vế so sánh => toán tử 2 ngôi
+3 vế so sánh => toán tử 3 ngôi
+
+nên học kiểu gõ VNI sẽ code dễ hơn vì nó dùng kết hợp số và chữ
+còn kiểu gõ Telex thì chữ toàn bộ

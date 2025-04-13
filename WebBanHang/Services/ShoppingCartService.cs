@@ -24,11 +24,14 @@ namespace WebBanHang.Services
 
         if (shoppingCart.IsSuccessStatusCode)
         {
+          // 204 NoContent
           if (shoppingCart.StatusCode == System.Net.HttpStatusCode.NoContent)
           {
+            //return Enumerable.Empty<CartItemDto>(); dòng code này sai vì không trả về danh sách
             return default(CartItemDto);
+            //return null;
           }
-
+          // 202 OK
           return await shoppingCart.Content.ReadFromJsonAsync<CartItemDto>();
         }
         else
@@ -37,15 +40,37 @@ namespace WebBanHang.Services
           throw new Exception($"Http Status: {shoppingCart.StatusCode} *** Message {messsage}");
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
     }
 
-    public Task<IEnumerable<CartItemDto>> GetItems(int userId)
+    public async Task<IEnumerable<CartItemDto>> GetItems(int userId)
     {
-      throw new NotImplementedException();
+      try
+      {
+        var response = await _httpClient.GetAsync($"api/{userId}/GetItems");
+        if (response.IsSuccessStatusCode)
+        {
+          if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+          {
+            return Enumerable.Empty<CartItemDto>();
+          }
+          var items = await response.Content.ReadFromJsonAsync<IEnumerable<CartItemDto>>();
+          return items;
+        }
+        else
+        {
+          var message = await response.Content.ReadAsStringAsync();
+          //throw new Exception(message);
+          throw new Exception($"Http status code: {response.StatusCode} *** Message: {message}");
+        }
+      }
+      catch (Exception)
+      {
+        throw;
+      }
     }
   }
 }

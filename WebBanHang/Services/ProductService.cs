@@ -19,7 +19,7 @@ namespace WebBanHang.Services
       {
         //var products = await _httpClient.GetFromJsonAsync<IEnumerable<ProductDto>>("api/Product");
         //var products = await _httpClient.GetFromJsonAsync<IEnumerable<ProductDto>>("https://localhost:7097/api/Product");
-        var products = await _httpClient.GetAsync("https://localhost:7097/api/Product");
+        var products = await _httpClient.GetAsync("http://localhost:5299/api/Product");
         //return products;
 
         if (products.IsSuccessStatusCode)
@@ -49,7 +49,7 @@ namespace WebBanHang.Services
     {
       try
       {
-        var product = await _httpClient.GetAsync($"https://localhost:7097/api/Product/{id}");
+        var product = await _httpClient.GetAsync($"http://localhost:5299/api/Product/{id}");
         //var product = await _httpClient.GetAsync($"https://localhost:7097/api/Product/0");
 
         if (product.IsSuccessStatusCode)
