@@ -2,6 +2,7 @@
 @* dẫn link /ShoppingCart từ menu *@
 @page "/ShoppingCart"
 @inherits ShoppingCartBase
+@* @inject A A *@
 
 <h3>Chức Năng Giỏ Hàng</h3>
 
@@ -30,6 +31,13 @@ else
             <h4>@item.ProductName</h4>
             <div class="mb-4">@item.ProductDescription</div>
             <span>Giá: <b>@item.Price.ToString("C")</b></span>
+            <div>
+              <button 
+                @onclick="() => DeleteCartItem(item.Id)" 
+                class="btn btn-danger sm">
+                Xóa
+              </button>
+            </div>
           </div>
         </div>
       }

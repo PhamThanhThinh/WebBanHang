@@ -46,7 +46,26 @@ namespace WebBanHang.Services
       }
     }
 
-    public async Task<IEnumerable<CartItemDto>> GetItems(int userId)
+    public async Task<CartItemDto> DeleteItem(int id)
+    {
+      try
+      {
+        var response = await _httpClient.DeleteAsync($"api/ShoppingCart/{id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+          return await response.Content.ReadFromJsonAsync<CartItemDto>();
+        }
+        return default(CartItemDto);
+      }
+      catch (Exception ex)
+      {
+
+        throw;
+      }
+    }
+
+    public async Task<List<CartItemDto>> GetItems(int userId)
     {
       try
       {
@@ -55,9 +74,9 @@ namespace WebBanHang.Services
         {
           if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
           {
-            return Enumerable.Empty<CartItemDto>();
+            return Enumerable.Empty<CartItemDto>().ToList();
           }
-          var items = await response.Content.ReadFromJsonAsync<IEnumerable<CartItemDto>>();
+          var items = await response.Content.ReadFromJsonAsync<List<CartItemDto>>();
           return items;
         }
         else

@@ -118,5 +118,36 @@ namespace WebBanHang.Api.Controllers
         return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
       }
     }
+
+    [HttpDelete("{id:int}")]
+    // dùng cho chức năng xóa Delete
+    public async Task<ActionResult<CartItemDto>> DeleteItem(int id)
+    {
+      try
+      {
+        var cartItem = await _shoppingCartRepository.DeleteItem(id);
+        if (cartItem == null)
+        {
+          return NotFound();
+        }
+
+        var product = await _productRepository.GetItem(cartItem.ProductId);
+
+        if (product == null)
+        {
+          return NotFound();
+        }
+
+        var cartItemDto = cartItem.ConvertToDto(product);
+
+        return Ok(cartItemDto);
+
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+      }
+    }
+
   }
 }
