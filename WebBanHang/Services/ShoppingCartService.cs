@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 using WebBanHang.Models.Dtos;
 using WebBanHang.Services.Contracts;
 
@@ -91,5 +92,23 @@ namespace WebBanHang.Services
         throw;
       }
     }
+
+    public Task<CartItemDto> UpdateItem(CartItemToAddDto cartItemToAddDto)
+    {
+      throw new NotImplementedException();
+    }
+
+    //public Task<CartItemDto> UpdateItem(CartItemToAddDto cartItemToAddDto)
+    //{
+    //  try
+    //  {
+    //    var jsonRequest = JsonConvert.Serial
+    //  }
+    //  catch (Exception)
+    //  {
+
+    //    throw;
+    //  }
+    //}
   }
 }

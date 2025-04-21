@@ -91,9 +91,19 @@ namespace WebBanHang.Api.Repositories
                     ).ToListAsync();
     }
 
-    public Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
+    public async Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
     {
-      throw new NotImplementedException();
+      var item = await _db.CartItems.FindAsync(id);
+
+      if (item != null)
+      {
+        item.Qty = cartItemQtyUpdateDto.Qty;
+        await _db.SaveChangesAsync();
+        return item;
+      }
+
+      return null;
+
     }
   }
 }

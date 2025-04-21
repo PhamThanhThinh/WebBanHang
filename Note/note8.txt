@@ -1,0 +1,88 @@
+account paypal dành cho dev
+remove
+delete
+
+CRUD
+
+200 OK
+404 Notfound
+403 từ chối truy cập
+500 Internal Server Error (lỗi phía server, lỗi api)
+api dùng bằng cách gọi key (trả phí)
+
+
+
+.net 5 và .net 6
+1 - Repository
+2 - Controller (api) asp.net core api
+3 - Interface Service
+4 - Service
+5 - Base
+6 - Giao diện (.razor .cshtml)
+
+contructor hàm dựng
+destructor hàm hủy
+
+getter lấy dữ liệu để load (màn hình, biến dữ liệu)
+setter thay đổi dữ liệu
+
+viết chức năng thay đổi số lượng sản phẩm trong giỏ hàng
+
+app quản lý thì mới dùng hàm Update
+
+không cập nhật lại nhiều trường dữ liệu cùng lúc
+
+1, Học làm web
+html, css (bootstrap), javascript
+React (javascript)
+Node (javascript)
+JavaSpring (Java)
+ASP.NET (C#)
+Học làm ứng dụng (desktop)
+C# hoặc là Java
+
+2, Ứng dụng mobile
+Java (Android Studio)
+C# (Hybrid, XAML -> C#)
+
+3, Làm game
+Game Unity (C#) (80% -> 90%) -> 2d/3d
+(studio tích hợp tất cả, chỉ cần cài 1 lần)
+4, Làm xe tự lái (AI)
+C++ ()
+5, Xử lý dữ liệu: âm thanh, hình ảnh, chữ viết
+C++
+Python (chủ yếu là python, vì python thiên về xử lý dữ liệu)
+
+
+C++ (cocos2dx) (10%) -> 2d
+(tự cài)
+
+C++ khó vì phải control từ đầu đến cuối
+
+CheatGame (crack game)
+tool convert code từ file cài thành code rồi biến code file cài
+
+DevOps: VPS, Server, Hosting, hiểu được các giao thức mạng; command line câu lệnh trong Linux; domain, ip; 
+build server game MMO (thường build lên web)
+
+deploy game
+
+Convert dll
+
+C#, SQL, LinQ
+HTML, CSS (Bootstrap), JavaScript
+Các thời kỳ lập trình ASP.NET
+1, ASP.NET WebForm (cũ) -> ứng dụng quản lý giống Windows Form 
+2, ASP.NET .NET Framework (ASP.NET MVC) -> Windows
+3, ASP.NET Core MVC -> Linux, Windows
+(phải học sâu javascript)
+
++, Blazor (code web, desktop, mobile, dùng chung database cho các nền tảng) -> Linux, Windows: HTML, CSS (Bootstrap), JavaScript (biết chút chút)
+
+trong project này: mỗi CartItemId tương ứng với 1 ProductId
+
+HttpPost chức năng cập nhật và tạo (update và create)
+HttpPatch chức năng cập nhật nhưng là cập nhật một phần của hàng trong một bảng dữ liệu (cập nhật một trương đơn lẻ của một hàng trong csdl) tức là cập nhật một phần của dòng dữ liệu
+
+ctrl + shift + S lưu tất cả các file
