@@ -101,27 +101,45 @@ namespace WebBanHang.Services
       throw new NotImplementedException();
     }
 
-    public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
+    //public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
+    //{
+    //  try
+    //  {
+    //    var jsonRequest = JsonConvert.SerializeObject(cartItemQtyUpdateDto);
+    //    var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
+
+    //    var response = await _httpClient.PatchAsync($"api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
+
+    //    if (response.IsSuccessStatusCode)
+    //    {
+    //      return await response.Content.ReadFromJsonAsync<CartItemDto>();
+    //    }
+    //    return null;
+
+    //  }
+    //  catch (Exception)
+    //  {
+    //    //Log exception
+    //    throw;
+    //  }
+    //}
+
+    // cập nhật số lượng giỏ hàng
+    public Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
     {
       try
       {
+        // vì chúng ta cần cập nhật một thành phần riêng trong một hàng dữ liệu trong một bảng dữ liệu
         var jsonRequest = JsonConvert.SerializeObject(cartItemQtyUpdateDto);
-        var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
-
-        var response = await _httpClient.PatchAsync($"api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
-
-        if (response.IsSuccessStatusCode)
-        {
-          return await response.Content.ReadFromJsonAsync<CartItemDto>();
-        }
-        return null;
-
+        // var noidung
+        var content = new StringContent(jsonRequest, Encoding.UTF8, "app");
       }
       catch (Exception)
       {
-        //Log exception
+        // nhận message nếu có
         throw;
       }
     }
+
   }
 }

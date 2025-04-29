@@ -1,0 +1,86 @@
+parameter: tham số (hay tham số truyền vào)
+{
+	{...}
+}
+
+f12
+
+hàm dựng
+constructor (phải tự control)
+
+hàm hủy
+destructor (tự động trong C#, không cần viết code)
+
+interface (I) giống với file .h trong C/C++
+dùng để khai báo những function cần dùng
+
+DAL
+Data Access Layer
+Data
+
+thực thể entity
+cơ sở dữ liệu database
+
+server (máy thật, vps, hosting)
+devops (cài môi trường: làm server, setting mail server: amazon aws, microsoft azure, google)
+
+add to cart (thêm vào giỏ hàng)
+
+Quantity Qty
+
+
+{\"name\":\"John\",\"age\":30}
+
+{
+"name": "John",
+"age": 30
+}
+
+sql server
+linux/window
+oracle
+
+- oracle free tier
+(vps linux)
+- link đăng ký https://www.oracle.com/vn/cloud/free/
+- xác định vị trí đặt vps là singapore, japan, đài loan/hông kông
+- thẻ visa thanh toán quốc tế (phải có money 100 nghìn vnđ)
+(dùng tài khoản 4 usd)
+- thông tin trên thẻ căn cước
+(vận may)
+
+linux (server dòng lệnh command line)
+huawei
+free 12 tháng (vps 10GB, 2GB)
+tốt nhất là cài linux
+server game 7 viên ngọc rồng
+deploy trang web
+...
+huawei free tier
+vps 10GB, 2GB
+***
+oracle (khá là mạnh nếu dùng gần hết tài nguyên của nó để build một vps, không nên dùng hết vì rất dễ bị đưa vào danh sách cần chú ý, khi phát sinh vấn đề thì bị xóa vps)
+1gb 1cpu 20gb
+
+
+
+
+
+
+
+
+mobile: mua tài khoản, android mua 1 lần dùng trọn đời, ios trả phí hằng năm
+
+
+
+
+
+unity C#
+
+
+
+github.com/PhamThanhThinh
+
+
+
+

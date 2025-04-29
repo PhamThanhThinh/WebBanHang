@@ -15,6 +15,7 @@ namespace WebBanHang.Api.Data
     //{
     //}
 
+    // seed data: dự liệu ban đầu nhập vào cơ sở dữ liệu
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
@@ -167,7 +168,6 @@ namespace WebBanHang.Api.Data
         Name = "Electronic"
       });
     }
-
 
     public DbSet<Cart> Carts { get; set; }
     public DbSet<CartItem> CartItems { get; set; }
