@@ -20,6 +20,9 @@ api dùng bằng cách gọi key (trả phí)
 5 - Base
 6 - Giao diện (.razor .cshtml)
 
+.net 8 .net 9 thì blazor dùng cơ chế component base
+còn nếu dùng asp.net core mvc thì api vẫn dùng controller bình thường hoặc không dùng controller cũng được
+
 contructor hàm dựng
 destructor hàm hủy
 

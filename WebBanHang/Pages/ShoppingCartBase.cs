@@ -48,7 +48,19 @@ namespace WebBanHang.Pages
       ShoppingCartItems.Remove(cartItemDto);
     }
 
+    protected async Task UpdateQtyCartItem(int id, int qty)
+    {
+      try
+      {
+        var cartItemDto = GetCartItem(id);
+      }
+      catch (Exception)
+      {
 
+        throw;
+      }
+
+    }
 
   }
 }

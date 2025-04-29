@@ -101,3 +101,11 @@ api/ShoppingCart
 
 string
 
+mỗi dev có chung định dạng nhánh trên git (technical build server linux + docker container build chỗ để lưu trữ code và tài liệu dự án)
+phần mềm mua (dùng miễn phí nhưng tự tải open source phần mềm quản lý code sử dụng git để lưu code)
+
+trong dự án thì PM (Project Manager) sẽ chia task cho các thành viên (team lead -> member)
+
+format code: ctrl + K + F
+red point
+break point
