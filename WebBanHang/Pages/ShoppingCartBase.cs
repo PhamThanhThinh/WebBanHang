@@ -52,7 +52,17 @@ namespace WebBanHang.Pages
     {
       try
       {
-        var cartItemDto = GetCartItem(id);
+        if (qty > 0)
+        {
+          var cartItemDto = new CartItemQtyUpdateDto
+          {
+            CartItemId = id,
+            Qty = qty
+          };
+
+          //var returnedUpdateQtyCartItemDto = await this.ShoppingCartService.UpdateQty
+
+        }
       }
       catch (Exception)
       {
