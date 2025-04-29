@@ -125,14 +125,25 @@ namespace WebBanHang.Services
     //}
 
     // cập nhật số lượng giỏ hàng
-    public Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
+    public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
     {
       try
       {
         // vì chúng ta cần cập nhật một thành phần riêng trong một hàng dữ liệu trong một bảng dữ liệu
         var jsonRequest = JsonConvert.SerializeObject(cartItemQtyUpdateDto);
         // var noidung
-        var content = new StringContent(jsonRequest, Encoding.UTF8, "app");
+        var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
+
+        // chứa id được từ DTO CartItemQtyUpdateDto
+        var response = await _httpClient.PatchAsync("$api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
+
+        // api trả về OK tức là 200
+        if (response.IsSuccessStatusCode)
+        {
+          return await response.Content.ReadFromJsonAsync<CartItemDto>();
+        }
+        // 404 or 500
+        return null;
       }
       catch (Exception)
       {

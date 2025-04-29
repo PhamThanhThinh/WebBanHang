@@ -48,5 +48,7 @@ namespace WebBanHang.Pages
       ShoppingCartItems.Remove(cartItemDto);
     }
 
+
+
   }
 }

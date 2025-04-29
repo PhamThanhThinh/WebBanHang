@@ -36,6 +36,12 @@ Quantity Qty
 "age": 30
 }
 
+{
+"qty": 1
+}
+
+
+
 sql server
 linux/window
 oracle
@@ -62,6 +68,9 @@ vps 10GB, 2GB
 oracle (khá là mạnh nếu dùng gần hết tài nguyên của nó để build một vps, không nên dùng hết vì rất dễ bị đưa vào danh sách cần chú ý, khi phát sinh vấn đề thì bị xóa vps)
 1gb 1cpu 20gb
 
+cách viết commit
+https://devops.vn/posts/cach-viet-git-commit-convention-chuan-chinh-lam-code-sach-doi-lam-drama/?fbclid=IwZXh0bgNhZW0CMTAAAR6ddEBhpCWBEvJRfLdZTJNCaKyx7Dw3JBzfJuPf1TRNdACnghyqMIcK-ClyXA_aem_3CCJVP0vA4w9GnfDZvvU4Q
+
 
 
 
@@ -82,5 +91,13 @@ unity C#
 github.com/PhamThanhThinh
 
 
+ViewModel
+DTO
 
+cú pháp dùng dấu ngoặc vuông []
+
+api/ShoppingCart
+
+
+string
 
