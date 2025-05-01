@@ -130,7 +130,7 @@ namespace WebBanHang.Services
         var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
 
         // chứa id được từ DTO CartItemQtyUpdateDto
-        var response = await _httpClient.PatchAsync("$api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
+        var response = await _httpClient.PatchAsync($"api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
 
         // api trả về OK tức là 200
         if (response.IsSuccessStatusCode)

@@ -77,6 +77,9 @@ namespace WebBanHang.Pages
         // tổng tiền = số lượng x đơn giá
         item.TotalPrice = cartItemDto.Price * cartItemDto.Qty;
       }
+      
+      //await 
+
     }
 
     private void CalculateCartSummaryTotals()
@@ -85,21 +88,19 @@ namespace WebBanHang.Pages
       SetTotalQuantiy();
     }
 
-    
-
     protected async Task UpdateQtyCartItem(int id, int qty)
     {
       try
       {
         if (qty > 0)
         {
-          var cartItemDto = new CartItemQtyUpdateDto
+          var updateItemDto = new CartItemQtyUpdateDto
           {
             CartItemId = id,
             Qty = qty
           };
 
-          var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(cartItemDto);
+          var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
 
           UpdateItemTotalPrice(returnedUpdateItemDto);
 
