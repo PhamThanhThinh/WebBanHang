@@ -69,3 +69,38 @@ DTO ViewModel
 lớp trung gian
 database => giao diện
 giao diện => database
+
+https port
+http thay đổi port
+
+Microsoft.AspNetCore.Components.WebAssembly.Rendering.WebAssemblyRenderer[100]
+      Unhandled exception rendering component: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebBanHang.Pages.ShoppingCartBase.UpdateItemTotalPrice(CartItemDto cartItemDto) in E:\Blazor\WebBanHang\WebBanHang\Pages\ShoppingCartBase.cs:line 73
+   at WebBanHang.Pages.ShoppingCartBase.UpdateQtyCartItem(Int32 id, Int32 qty) in E:\Blazor\WebBanHang\WebBanHang\Pages\ShoppingCartBase.cs:line 126
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+
+nếu id là 0 hoặc là số âm nghĩa là không lấy được id
+
+page
+base
+
+nếu dùng github để tạo repo thì nhánh mặt định là main
+nếu dùng vs2022 để tạo repo thì ... master
+
+T đại diện cho bất kỳ kiểu dữ liệu nào
+list
+
+asp.net mvc (.net framework)
+asp.net core mvc
+cả hai đều dùng javascript là chủ yếu
+
+nên dùng relationship theo truyền thống
+attribute
+properti
+thuộc tính
+
+React (javascript)
+
+seed data (tạo dữ liệu ban đầu cho database)

@@ -19,6 +19,9 @@ namespace WebBanHang.Services
       _httpClient = httpClient;
     }
 
+    // hardcode code cứng
+    public event Action<int> TrangThaiGioHang;
+
     public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAddDto)
     {
       // xử lý ngoại lệ
@@ -96,6 +99,8 @@ namespace WebBanHang.Services
       }
     }
 
+    
+
     //public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
     //{
     //  try
@@ -137,13 +142,21 @@ namespace WebBanHang.Services
         {
           return await response.Content.ReadFromJsonAsync<CartItemDto>();
         }
-        // 404 or 500
+        // 404 (not found) or 500
         return null;
       }
       catch (Exception)
       {
         // nhận message nếu có
         throw;
+      }
+    }
+
+    public void KichHoatSuKienTrangThaiCuaGioHang(int totalQty)
+    {
+      if (TrangThaiGioHang != null)
+      {
+        TrangThaiGioHang.Invoke(totalQty);
       }
     }
 

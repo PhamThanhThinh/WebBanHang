@@ -22,10 +22,11 @@ namespace WebBanHang.Pages
       try
       {
         ShoppingCartItems = await ShoppingCartService.GetItems(Hardcoded.UserId);
-        
+
         // tính tổng giá tiền
         //UpdateItemTotalPrice();
-        CalculateCartSummaryTotals();
+        //CalculateCartSummaryTotals();
+        CartChagned();
       }
       catch (Exception ex)
       {
@@ -40,7 +41,8 @@ namespace WebBanHang.Pages
         var cartItemDto = await ShoppingCartService.DeleteItem(id);
         RemoveCartItem(id);
         //UpdateItemTotalPrice();
-        CalculateCartSummaryTotals();
+        //CalculateCartSummaryTotals();
+        CartChagned();
       }
       catch (Exception ex)
       {
@@ -88,6 +90,12 @@ namespace WebBanHang.Pages
       SetTotalQuantiy();
     }
 
+    private void CartChagned()
+    {
+      CalculateCartSummaryTotals();
+      ShoppingCartService.KichHoatSuKienTrangThaiCuaGioHang(TotalQuantity);
+    }
+
     protected async Task UpdateQtyCartItem(int id, int qty)
     {
       try
@@ -105,7 +113,16 @@ namespace WebBanHang.Pages
           UpdateItemTotalPrice(returnedUpdateItemDto);
 
           // không thể truyền trực tiếp vào đây
-          CalculateCartSummaryTotals();
+          //CalculateCartSummaryTotals();
+          CartChagned();
+
+          // cách làm trên là cơ bản
+
+          // tính năng update qty nâng cao
+
+          // gọi một method ở đây, method này chưa được code
+          //await 
+
         }
         else
         {
@@ -130,7 +147,7 @@ namespace WebBanHang.Pages
       }
 
       
-
+      
 
     }
 

@@ -8,12 +8,29 @@ namespace WebBanHang.Pages
   {
     [Inject]
     public IProductService ProductService { get; set; }
+    
+    [Inject]
+    public IShoppingCartService ShoppingCartService { get; set; }
 
     public IEnumerable<ProductDto> Products { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-      Products = await ProductService.GetItems();
+      try
+      {
+        Products = await ProductService.GetItems();
+
+        var shoppingCartItems = await ShoppingCartService.GetItems(Hardcoded.UserId);
+        // var tQ
+        var totalQty = shoppingCartItems.Sum(i => i.Qty);
+
+        ShoppingCartService.KichHoatSuKienTrangThaiCuaGioHang(totalQty);
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
     }
 
     protected IOrderedEnumerable<IGrouping<int, ProductDto>> GetGroupedProductsByCategory()
