@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Runtime.CompilerServices;
 using WebBanHang.Models.Dtos;
 using WebBanHang.Services.Contracts;
 
@@ -12,11 +13,19 @@ namespace WebBanHang.Pages
     //public IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
     public List<CartItemDto> ShoppingCartItems { get; set; }
     public string ErrorMessage { get; set; }
+    
+    protected string TotalPrice { get; set; }
+    protected int TotalQuantity {  get; set; }
+
     protected override async Task OnInitializedAsync()
     {
       try
       {
         ShoppingCartItems = await ShoppingCartService.GetItems(Hardcoded.UserId);
+        
+        // tính tổng giá tiền
+        //UpdateItemTotalPrice();
+        CalculateCartSummaryTotals();
       }
       catch (Exception ex)
       {
@@ -30,6 +39,8 @@ namespace WebBanHang.Pages
       {
         var cartItemDto = await ShoppingCartService.DeleteItem(id);
         RemoveCartItem(id);
+        //UpdateItemTotalPrice();
+        CalculateCartSummaryTotals();
       }
       catch (Exception ex)
       {
@@ -48,6 +59,34 @@ namespace WebBanHang.Pages
       ShoppingCartItems.Remove(cartItemDto);
     }
 
+    private void SetTotalPrice()
+    {
+      TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
+    }
+    private void SetTotalQuantiy()
+    {
+      TotalQuantity = this.ShoppingCartItems.Sum(p => p.Qty);
+    }
+
+    private void UpdateItemTotalPrice(CartItemDto cartItemDto)
+    {
+      var item = GetCartItem(cartItemDto.Id);
+
+      if (item != null)
+      {
+        // tổng tiền = số lượng x đơn giá
+        item.TotalPrice = cartItemDto.Price * cartItemDto.Qty;
+      }
+    }
+
+    private void CalculateCartSummaryTotals()
+    {
+      SetTotalPrice();
+      SetTotalQuantiy();
+    }
+
+    
+
     protected async Task UpdateQtyCartItem(int id, int qty)
     {
       try
@@ -62,6 +101,10 @@ namespace WebBanHang.Pages
 
           var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(cartItemDto);
 
+          UpdateItemTotalPrice(returnedUpdateItemDto);
+
+          // không thể truyền trực tiếp vào đây
+          CalculateCartSummaryTotals();
         }
         else
         {
@@ -71,7 +114,7 @@ namespace WebBanHang.Pages
           // ! =
           if (item != null)
           {
-            // hardcoding
+            // hardcoding: code cứng
             item.Qty = 1;
             item.TotalPrice = item.Price;
           }
@@ -84,6 +127,9 @@ namespace WebBanHang.Pages
 
         throw;
       }
+
+      
+
 
     }
 

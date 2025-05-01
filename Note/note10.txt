@@ -1,0 +1,71 @@
+Project Manager (PM)
+Team Leader
+
+Task: Đăng Nhập, Đăng Ký, Đăng Xuất (xác thực)
+
+Blazor
+ASP.NET Core MVC
+controller api
+
+
+git commit convention
+https://devops.vn/posts/cach-viet-git-commit-convention-chuan-chinh-lam-code-sach-doi-lam-drama/?fbclid=IwZXh0bgNhZW0CMTAAAR6ddEBhpCWBEvJRfLdZTJNCaKyx7Dw3JBzfJuPf1TRNdACnghyqMIcK-ClyXA_aem_3CCJVP0vA4w9GnfDZvvU4Q
+
+pull (đưa hết tất cả code được push lên từ các dev về máy)
+code
+commit
+push
+
+dem = dem + 1
+dem++
+
+sm
+md
+xl
+
+build lại ứng dụng mỗi khi thay đổi code
+
+web server là IIS (không có console)
+dùng kestrel có console
+
+web server: IIS
+domain: mua 20 nghìn 1 cái (.online, ...)
+vps windows (có cài IIS): có phí, đắt
+server máy thật
+hosting
+asp.net web forms
+asp.net .net framework
+hosting: 2 chỗ dùng để deploy (2 trang web)
+
+code first => nhập bằng excel, xuất bằng excel
+cũ: cộng chuỗi (windows form)
+mới: linq (phổ biến trong các ứng dụng hiện tại: wpf, blazor)
+
+constructor (hàm dựng)
+
+DTO
+
+quản lý: quản lý bệnh viện, quản lý giấy tờ...
+
+1, asp.net webforms (siêu cũ, thời kỳ đầu)
+2, asp.net mvc (.net framework 4.8 max)
+3, asp.net core mvc (.net core)
+hỗ thêm cho người chỉ code c#
+blazor mới => đồng bộ database giữa các ứng dụng: ứng dụng điện thoại, ứng máy tính, ứng dụng web dùng chung database: sql
+không chỉ code được web mà còn code được ứng máy tính và ứng điện thoại sử dụng html css để làm giao diện (blazor hybrid)
+
+tiêu chuẩn tuyển bị nâng cao hơn trước khi AI phổ biến (open AI)
+
+DAL
+Data Access Layer
+Data: dbcontext
+Entity: các thực thể
+
+biểu thực lamda
+linq
+
+
+DTO ViewModel
+lớp trung gian
+database => giao diện
+giao diện => database
