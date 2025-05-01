@@ -60,9 +60,24 @@ namespace WebBanHang.Pages
             Qty = qty
           };
 
-          //var returnedUpdateQtyCartItemDto = await this.ShoppingCartService.UpdateQty
+          var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(cartItemDto);
 
         }
+        else
+        {
+          var item = this.ShoppingCartItems.FirstOrDefault(i => i.Id == id);
+
+          // is not null
+          // ! =
+          if (item != null)
+          {
+            // hardcoding
+            item.Qty = 1;
+            item.TotalPrice = item.Price;
+          }
+
+        }
+
       }
       catch (Exception)
       {

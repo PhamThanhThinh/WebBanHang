@@ -96,11 +96,6 @@ namespace WebBanHang.Services
       }
     }
 
-    public Task<CartItemDto> UpdateItem(CartItemToAddDto cartItemToAddDto)
-    {
-      throw new NotImplementedException();
-    }
-
     //public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
     //{
     //  try
