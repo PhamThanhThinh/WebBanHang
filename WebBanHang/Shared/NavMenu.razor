@@ -1,4 +1,5 @@
-﻿@inject IShoppingCartService ShoppingCartService
+﻿@implements IDisposable
+@inject IShoppingCartService ShoppingCartService
 
 <div class="top-row ps-3 navbar navbar-dark">
   <div class="container-fluid">
@@ -58,4 +59,10 @@
     // load lại dữ liệu trên UI (giao diện người dùng User Interface)
     StateHasChanged();
   }
+
+  void IDisposable.Dispose()
+  {
+    ShoppingCartService.TrangThaiGioHang -= ShoppingCartChanged;
+  }
+
 }
