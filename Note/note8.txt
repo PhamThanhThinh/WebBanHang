@@ -8,8 +8,8 @@ CRUD
 404 Notfound
 403 từ chối truy cập (phía giao diện người dùng)
 500 Internal Server Error (lỗi phía server, lỗi api)
-api dùng bằng cách gọi key (trả phí)
 
+api dùng bằng cách gọi key (miễn phí/trả phí)
 
 
 .net 5 và .net 6

@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Runtime.CompilerServices;
 using WebBanHang.Models.Dtos;
 using WebBanHang.Services.Contracts;
 
-namespace WebBanHang.Pages
+namespace WebBanHang.Pages.ShoppingCart
 {
   public class ShoppingCartBase : ComponentBase
   {
+    [Inject]
+    public IJSRuntime Js { get; set; }
     // đây là một attribute
     [Inject]
     public IShoppingCartService ShoppingCartService { get; set; }
@@ -63,11 +66,11 @@ namespace WebBanHang.Pages
 
     private void SetTotalPrice()
     {
-      TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
+      TotalPrice = ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
     }
     private void SetTotalQuantiy()
     {
-      TotalQuantity = this.ShoppingCartItems.Sum(p => p.Qty);
+      TotalQuantity = ShoppingCartItems.Sum(p => p.Qty);
     }
 
     private void UpdateItemTotalPrice(CartItemDto cartItemDto)
@@ -86,6 +89,9 @@ namespace WebBanHang.Pages
 
     private void CalculateCartSummaryTotals()
     {
+      // nếu có sự thay đổi về tổng của giá trị trong giỏ hàng
+      // thì thay đổi luôn
+      // còn không thì load dữ liệu ban đầu ra
       SetTotalPrice();
       SetTotalQuantiy();
     }
@@ -108,7 +114,7 @@ namespace WebBanHang.Pages
             Qty = qty
           };
 
-          var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
+          var returnedUpdateItemDto = await ShoppingCartService.UpdateQty(updateItemDto);
 
           UpdateItemTotalPrice(returnedUpdateItemDto);
 
@@ -123,10 +129,14 @@ namespace WebBanHang.Pages
           // gọi một method ở đây, method này chưa được code
           //await 
 
+          //await MakeUpdateQtyCartItem(id, false);
+          // hiển thị nút cập nhật giỏ hàng cho người ta
+          // vì đa số hàng trên hệ thống còn tồn kho
+          await MakeUpdateQtyCartItem(id, true);
         }
         else
         {
-          var item = this.ShoppingCartItems.FirstOrDefault(i => i.Id == id);
+          var item = ShoppingCartItems.FirstOrDefault(i => i.Id == id);
 
           // is not null
           // ! =
@@ -145,10 +155,13 @@ namespace WebBanHang.Pages
 
         throw;
       }
+    }
 
-      
-      
-
+    // nút update số lượng hàng có được hiện lên không
+    // ẩn hiện nút cập nhật số lượng hàng (làm trước) / ẩn hiện sản phẩm (làm sau)
+    private async Task MakeUpdateQtyCartItem(int id, bool visible)
+    {
+      await Js.InvokeVoidAsync("MakeUpdateQtyCartItem", id, visible);
     }
 
   }

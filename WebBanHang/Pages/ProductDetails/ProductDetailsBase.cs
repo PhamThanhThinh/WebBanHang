@@ -2,7 +2,7 @@
 using WebBanHang.Models.Dtos;
 using WebBanHang.Services.Contracts;
 
-namespace WebBanHang.Pages
+namespace WebBanHang.Pages.ProductDetails
 {
   public class ProductDetailsBase : ComponentBase
   {

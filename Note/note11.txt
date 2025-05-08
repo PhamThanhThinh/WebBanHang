@@ -1,0 +1,16 @@
+pull đồng bộ code từ git về local
+https://codingwiththinh.blogspot.com/
+(google, blogspot gọi được api của google)
+w
+ư
+ctrl + shift: phím tắt chuyển ngôn ngữ
+en => vi
+vi => en
+chứa ntext
+Qty (Quantity): số lượng
+
+tree cây thư mục dự án
+attribute
+variable biến dữ liệu
+
+DAL Data Access Layer

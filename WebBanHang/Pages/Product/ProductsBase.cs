@@ -2,7 +2,7 @@
 using WebBanHang.Models.Dtos;
 using WebBanHang.Services.Contracts;
 
-namespace WebBanHang.Pages
+namespace WebBanHang.Pages.Product
 {
   public class ProductsBase : ComponentBase
   {
@@ -14,6 +14,8 @@ namespace WebBanHang.Pages
 
     public IEnumerable<ProductDto> Products { get; set; }
 
+    public string ErrorMessage { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
       try
@@ -21,14 +23,16 @@ namespace WebBanHang.Pages
         Products = await ProductService.GetItems();
 
         var shoppingCartItems = await ShoppingCartService.GetItems(Hardcoded.UserId);
-        // var tQ
+        // var tQ tổng số lượng
         var totalQty = shoppingCartItems.Sum(i => i.Qty);
 
+        // RaiseEventOnShoppingCartChanged
         ShoppingCartService.KichHoatSuKienTrangThaiCuaGioHang(totalQty);
-      }
-      catch (Exception)
-      {
 
+      }
+      catch (Exception ex)
+      {
+        ErrorMessage = ex.Message;
         throw;
       }
     }
