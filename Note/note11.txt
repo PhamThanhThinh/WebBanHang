@@ -24,4 +24,13 @@ https://devops.vn/posts/cach-viet-git-commit-convention-chuan-chinh-lam-code-sac
 
 https://tpvncode.blogspot.com/2025/05/cach-viet-git-commit-convention-chuan.html
 
+ẩn hiện giao diện
 
+trong đoạn code
+[Inject] 
+public IShoppingCartService ShoppingCartService { get; set; }
+[Inject] là một attribute trong C#, dùng để đánh dấu một property để tiêm dependency (DI - Dependency Injection), thường dùng trong các component của Blazor hoặc các class hỗ trợ DI
+
+trong đoạn code
+@inject IShoppingCartService ShoppingCartService
+@inject là một directive (chỉ thị) trong Razor syntax
