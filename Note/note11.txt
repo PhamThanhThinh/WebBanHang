@@ -14,3 +14,14 @@ attribute
 variable biến dữ liệu
 
 DAL Data Access Layer
+
+Data
+DAL
+
+Commit Convention
+
+https://devops.vn/posts/cach-viet-git-commit-convention-chuan-chinh-lam-code-sach-doi-lam-drama/?fbclid=IwZXh0bgNhZW0CMTAAAR6ddEBhpCWBEvJRfLdZTJNCaKyx7Dw3JBzfJuPf1TRNdACnghyqMIcK-ClyXA_aem_3CCJVP0vA4w9GnfDZvvU4Q
+
+https://tpvncode.blogspot.com/2025/05/cach-viet-git-commit-convention-chuan.html
+
+
