@@ -1,8 +1,42 @@
-﻿@using WebBanHang.Services.Contracts
+﻿@implements IDisposable
 @inject IShoppingCartService ShoppingCartService
+@* @page "/CartMenu" *@
+@* <h3>CartMenu</h3> *@
 
-<h3>CartMenu</h3>
+<a href="ShoppingCart" class="btn btn-primary">
+  <i class="bi bi-cart4"></i>&nbsp; Giỏ Hàng
+  <span class="badge bg-danger">@shoppingCartItemCount</span>
+</a>
 
 @code {
+  private int shoppingCartItemCount = 0;
+
+  // task
+  protected override void OnInitialized()
+  {
+    ShoppingCartService.TrangThaiGioHang += ShoppingCartChanged;
+  }
+
+  // public void Dispose()
+  // {
+  //   throw new NotImplementedException();
+  // }
+
+  // private void Dispose()
+  // {
+  //   throw new NotImplementedException();
+  // }
+
+  protected void ShoppingCartChanged(int totalQty)
+  {
+    shoppingCartItemCount = totalQty;
+    // load lại dữ liệu trên UI (giao diện người dùng User Interface)
+    StateHasChanged();
+  }
+
+  void IDisposable.Dispose()
+  {
+    ShoppingCartService.TrangThaiGioHang -= ShoppingCartChanged;
+  }
 
 }

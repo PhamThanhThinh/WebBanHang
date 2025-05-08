@@ -34,3 +34,13 @@ public IShoppingCartService ShoppingCartService { get; set; }
 trong đoạn code
 @inject IShoppingCartService ShoppingCartService
 @inject là một directive (chỉ thị) trong Razor syntax
+
+a += b;
+
+
+block: div
+inline: span
+
+ctrl + K + F: format code
+
+đặt phòng khách sạn
