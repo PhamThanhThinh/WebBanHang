@@ -44,3 +44,39 @@ inline: span
 ctrl + K + F: format code
 
 đặt phòng khách sạn
+
+hàm dựng contructor 
+hàm hủy destructor (giải phóng bộ nhớ)
+
+
+paypal (có ở Việt Nam)
+stripe (không có ở Việt Nam)
+
+
+maui blazor hybrid code ứng dụng điện thoại + ứng dụng máy tính + web => dùng chung database, giải pháp đồng bộ hóa dữ liệu (đồng bộ hóa database)
+
+để deploy một trang web ta cần
+server: máy thật, vps, cloud
+
+thanh toán bằng thẻ visa
+
+hoặc dùng momo
+vnpay
+
+
+
+abc-def-adc357
+
+
+paypal có hai loại tài khoản
+personal
+business
+
+ViewModel (DTO)
+
+Generated credit card details
+Card number 4032035793678681
+Expiry date 07/2027
+CVC code 327 (CVV)
+
+lập trình web asp.net core blazor

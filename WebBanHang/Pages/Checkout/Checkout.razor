@@ -1,0 +1,31 @@
+﻿@page "/Checkout"
+@inherits CheckoutBase
+
+<h3>Thanh Toán</h3>
+
+<div id="smart-button-container">
+  <input type="hidden"
+  name="descriptionInput"
+  id="description"
+  @bind="PaymentDescription" />
+  <input name="amountInput" type="hidden"
+  id="amount"
+  @bind="PaymentAmount" />
+  <div style="text-align: center;" id="paypal-button-container"></div>
+</div>
+
+@if (ShoppingCartItems == null)
+{
+  <DisplayLoader/>
+}
+else
+{
+  
+}
+
+@code {
+  private async Task CallPayPalButton()
+  {
+    await Js.InvokeVoidAsync("initPayPalButton");
+  }
+}

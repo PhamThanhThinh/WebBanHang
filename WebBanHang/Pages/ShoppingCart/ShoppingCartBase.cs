@@ -15,6 +15,7 @@ namespace WebBanHang.Pages.ShoppingCart
     public IShoppingCartService ShoppingCartService { get; set; }
     //public IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
     public List<CartItemDto> ShoppingCartItems { get; set; }
+
     public string ErrorMessage { get; set; }
     
     protected string TotalPrice { get; set; }
@@ -129,10 +130,10 @@ namespace WebBanHang.Pages.ShoppingCart
           // gọi một method ở đây, method này chưa được code
           //await 
 
-          //await MakeUpdateQtyCartItem(id, false);
+          await MakeUpdateQtyCartItem(id, false);
           // hiển thị nút cập nhật giỏ hàng cho người ta
           // vì đa số hàng trên hệ thống còn tồn kho
-          await MakeUpdateQtyCartItem(id, true);
+          //await MakeUpdateQtyCartItem(id, true);
         }
         else
         {
@@ -163,6 +164,12 @@ namespace WebBanHang.Pages.ShoppingCart
     {
       await Js.InvokeVoidAsync("MakeUpdateQtyCartItem", id, visible);
     }
+
+    //protected IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
+
+    protected int TotalQty { get; set; }
+    protected string PaymentDescription { get; set; }
+    protected decimal PaymentAmount { get; set; }
 
   }
 }

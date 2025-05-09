@@ -24,17 +24,16 @@ else
         <div class="row mb-4">
           <div class="col-md-4">
             <img src="@item.ProductImageUrl"
-            width="300"
-            class="img-thumbnail"/>
+                 width="300"
+                 class="img-thumbnail" />
           </div>
           <div class="col-md-8">
             <h4>@item.ProductName</h4>
             <div class="mb-4">@item.ProductDescription</div>
             <span>Giá: <b>@item.Price.ToString("C")</b></span>
             <div>
-              <button 
-                @onclick="() => DeleteCartItem(item.Id)" 
-                class="btn btn-danger sm">
+              <button @onclick="() => DeleteCartItem(item.Id)"
+                      class="btn btn-danger sm">
                 Xóa
               </button>
             </div>
@@ -42,8 +41,7 @@ else
             <span>
               nhập bằng tay để cập nhật số lượng
               <input @bind="@item.Qty" type="number" />
-              <button
-                class="btn btn-success btn-sm"
+              <button class="btn btn-success btn-sm"
                       @onclick="(() => UpdateQtyCartItem(item.Id, item.Qty))">
                 submit dữ liệu số lượng (nút update số lượng)
               </button>
@@ -57,10 +55,31 @@ else
       <h4>Giỏ Hàng</h4>
       <div class="mt-2">
         <div>Tổng tiền cần thanh toán - (@TotalQuantity món hàng)&nbsp;<b>@TotalPrice</b></div>
-        <a href="#" class="btn btn-primary">
+        @* <a href="Checkout" class="btn btn-primary">
           <span class="oi oi-credit-card"></span>&nbsp; Thanh Toán
-        </a>
+        </a> *@
+
+        <div id="smart-button-container">
+          <input type="hidden"
+                 name="descriptionInput"
+                 id="description"
+                 @bind="PaymentDescription" />
+          <input name="amountInput" type="hidden"
+                 id="amount"
+                 @bind="PaymentAmount" />
+          <div style="text-align: center;" id="paypal-button-container"></div>
+        </div>
+
+        <button @onclick="CallPayPalButton">Thanh toán</button>
+
       </div>
     </div>
   </div>
+}
+
+@code {
+  private async Task CallPayPalButton()
+  {
+    await Js.InvokeVoidAsync("initPayPalButton");
+  }
 }
